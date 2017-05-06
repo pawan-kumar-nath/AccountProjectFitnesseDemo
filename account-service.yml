@@ -1,0 +1,41 @@
+database:
+  driverClass: oracle.jdbc.driver.OracleDriver
+  user: ${dbUser}
+  password: ${dbPassword}
+  url: jdbc:oracle:thin:@${dbHost}
+  properties:
+    charSet: UTF-8
+  maxWaitForConnection: 100s
+  validationQuery: "select 1 from dual"
+  minSize: 8
+  maxSize: 32
+  checkConnectionWhileIdle: false
+  logValidationErrors: true
+
+server:
+  rootPath: '/account/*'
+  applicationConnectors:
+    - type: http
+      port: 9000
+  adminConnectors:
+    - type: http
+      port: 9001
+      
+logging:
+  # The default level of all loggers. Can be OFF, ERROR, WARN, INFO, DEBUG, TRACE, or ALL.
+  level: ${defaultLogLevel}
+  loggers:
+    org.springframework.core.type.classreading.AnnotationAttributesReadingVisitor: WARN
+    org.springframework.core.type.classreading.RecursiveAnnotationAttributesVisitor: WARN
+  appenders:
+    - type: console
+      threshold: ALL
+      timeZone: UTC
+      target: stdout
+    - type: file
+      currentLogFilename: logs/account.log
+      threshold: ALL
+      archive: true
+      archivedLogFilenamePattern: logs/account-%d.log
+      archivedFileCount: 5
+      timeZone: UTC
