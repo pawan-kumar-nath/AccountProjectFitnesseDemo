@@ -13,7 +13,7 @@ database:
   logValidationErrors: true
 
 server:
-  rootPath: '/account/*'
+  rootPath: '/fitnesse/demo/*'
   applicationConnectors:
     - type: http
       port: 9000
