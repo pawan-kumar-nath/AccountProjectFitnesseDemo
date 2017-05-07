@@ -66,4 +66,30 @@ public class AccountServiceImpl implements AccountService{
 		return balance;
 	}
 
+	public boolean withdraw(String customerName, int amount) {
+		boolean withdrawn = false;
+		
+		int customerId = customerService.getCustomerId(customerName);
+		if(customerId != 0){
+			int accountNumber = accountDao.getAccountNumberByCustomerId(customerId);
+			if(accountNumber != 0){
+				int currentBalance = accountDao.getBalance(customerId, accountNumber);
+				if(currentBalance < amount){
+		        	throw new AccountDemoException("Insufficient balance in account");
+				}
+				
+				accountDao.updateAccount(currentBalance - amount, accountNumber);
+				withdrawn = true;
+			}else{
+	        	throw new AccountDemoException("Account does not exist for customer ["+customerName+"]");
+			}
+		}else{
+        	throw new AccountDemoException("Customer ["+customerName+"] does not exist");
+		}
+		
+		LOG.info("Amount withdrawn ["+withdrawn+"] for customer ["+customerName+"]");
+
+		return withdrawn;
+	}
+
 }
