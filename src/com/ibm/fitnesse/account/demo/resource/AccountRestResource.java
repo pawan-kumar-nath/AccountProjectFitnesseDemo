@@ -27,7 +27,13 @@ public class AccountRestResource {
 
 	@Autowired
 	private AccountService accountService;
-	
+
+	/*
+	 * URL Options:
+	 * /fitnesse/demo/account/?operation=withdraw
+	 * /fitnesse/demo/account/?operation=deposit
+	 * 
+	 * */
 	@POST
     @Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
