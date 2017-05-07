@@ -17,11 +17,18 @@ In order to run this project, please do following steps:
 4) Build using MAVEN (command:  mvn install)
 5) Run application by command:  ./run.sh
 
+Ports:
+Application run on port: 9000
+Debugging Port: 4005
 
 API Details:
 1) To Create Customer:
  POST    /fitnesse/demo/customer/{customerName}
  
+ Header:
+  Accept:application/json
+  Content-Type:application/json
+  
 2) To Deposit Amount:
  POST    /fitnesse/demo/account/?operation=deposit
  
@@ -50,5 +57,8 @@ API Details:
  
 4) To Check Balance:
  GET     /fitnesse/demo/customer/{customerName}
-
+ 
+ Header:
+  Accept:application/json
+  Content-Type:application/json
  
