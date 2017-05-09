@@ -9,6 +9,7 @@ Technology stack used:
 2) Spring IOC
 3) JDBI Library for database interaction
 4) REST with JAX-RS
+5) Maven
 
 In order to run this project, please do following steps:
 1) Get a oracle database 
