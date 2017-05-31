@@ -10,6 +10,7 @@ Technology stack used:
 3) JDBI Library for database interaction
 4) REST with JAX-RS
 5) Maven
+6) Swagger for API Documentation
 
 In order to run this project, please do following steps:
 1) Get a oracle database 
@@ -21,6 +22,8 @@ In order to run this project, please do following steps:
 Ports:
 Application run on port: 9000
 Debugging Port: 4005
+
+Swagger UI URL: http://localhost:9000/fitnesse/demo/swagger 
 
 API Details:
 1) To Create Customer:

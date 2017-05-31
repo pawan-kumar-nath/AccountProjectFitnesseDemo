@@ -7,12 +7,18 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import io.dropwizard.Configuration;
 import io.dropwizard.db.DataSourceFactory;
+import io.federecio.dropwizard.swagger.SwaggerBundleConfiguration;
 
 public class AccountProjectFitnesseDemoConfiguration extends Configuration {
 
 	@Valid
 	@NotNull
 	private DataSourceFactory database = new DataSourceFactory();
+	
+	@Valid
+	@NotNull
+    @JsonProperty("swagger")
+    private SwaggerBundleConfiguration swaggerBundleConfiguration;
 
 	@JsonProperty("database")
 	public DataSourceFactory getDatabase() {
@@ -20,8 +26,15 @@ public class AccountProjectFitnesseDemoConfiguration extends Configuration {
 	}
 
 	@JsonProperty("database")
-	public void setDatabase(DataSourceFactory mcpDatabase) {
-		this.database = mcpDatabase;
+	public void setDatabase(DataSourceFactory database) {
+		this.database = database;
 	}
-		
+
+	public SwaggerBundleConfiguration getSwaggerBundleConfiguration() {
+		return swaggerBundleConfiguration;
+	}
+
+	public void setSwaggerBundleConfiguration(SwaggerBundleConfiguration swaggerBundleConfiguration) {
+		this.swaggerBundleConfiguration = swaggerBundleConfiguration;
+	}
 }

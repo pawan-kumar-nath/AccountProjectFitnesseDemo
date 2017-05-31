@@ -58,7 +58,7 @@
         <dependency>
             <groupId>org.reflections</groupId>
             <artifactId>reflections</artifactId>
-            <version>0.9.8</version>
+            <version>0.9.10</version>
         </dependency>        
         <dependency>
             <groupId>org.codehaus.jackson</groupId>
@@ -75,6 +75,11 @@
             <artifactId>spring-oxm</artifactId>
             <version>4.2.7.RELEASE</version>
         </dependency>
+        <dependency>
+		    <groupId>io.federecio</groupId>
+		    <artifactId>dropwizard-swagger</artifactId>
+		    <version>0.7.0</version>
+		</dependency>
       </dependencies>
   
     <build>

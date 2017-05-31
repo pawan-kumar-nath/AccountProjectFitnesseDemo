@@ -39,3 +39,9 @@ logging:
       archivedLogFilenamePattern: logs/account-%d.log
       archivedFileCount: 5
       timeZone: UTC
+
+# the only required property is resourcePackage, for more config options see below
+swagger:
+  resourcePackage: com.ibm.fitnesse.account.demo.resource
+
+      

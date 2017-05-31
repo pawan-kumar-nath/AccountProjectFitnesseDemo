@@ -7,6 +7,8 @@ import io.dropwizard.configuration.EnvironmentVariableSubstitutor;
 import io.dropwizard.configuration.SubstitutingSourceProvider;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
+import io.federecio.dropwizard.swagger.SwaggerBundle;
+import io.federecio.dropwizard.swagger.SwaggerBundleConfiguration;
 
 public class AccountProjectFitnesseDemoApplication extends Application<AccountProjectFitnesseDemoConfiguration> {
 
@@ -37,6 +39,13 @@ public class AccountProjectFitnesseDemoApplication extends Application<AccountPr
                         new EnvironmentVariableSubstitutor(false)
                 )
         );
+        
+        bootstrap.addBundle(new SwaggerBundle<AccountProjectFitnesseDemoConfiguration>() {
+            @Override
+            protected SwaggerBundleConfiguration getSwaggerBundleConfiguration(AccountProjectFitnesseDemoConfiguration configuration) {
+                return configuration.getSwaggerBundleConfiguration();
+            }
+        });
 	}
 
 	@Override
